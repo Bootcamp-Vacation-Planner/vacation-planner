@@ -1,4 +1,4 @@
-const db = require ("../models/events");
+const db = require ("../models");
 
 module.exports = {
     findAll: function (req, res) {
