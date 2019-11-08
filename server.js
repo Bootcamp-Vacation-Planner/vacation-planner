@@ -6,10 +6,11 @@ const session = require('express-session')
 const dbConnection = require('./connection')
 const MongoStore = require('connect-mongo')(session)
 const passport = require('./passport');
+const path = require ("path");
 const app = express();
 const PORT = process.env.PORT || 8080;
 // Route requires
-const user = require('./routes/user')
+const routes = require("./routes");
 
 // MIDDLEWARE
 app.use(morgan('dev'))
@@ -42,7 +43,14 @@ app.use(passport.session()) // calls the deserializeUser
 
 
 // Routes
-app.use('/user', user)
+app.use(routes);
+
+app.use(express.static(path.join(__dirname, "client", "build")))
+// Routes
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+// app.use('/user', user)
 
 // Starting Server 
 app.listen(PORT, () => {
