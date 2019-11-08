@@ -7,7 +7,13 @@ const eventSchema = new Schema({
     startTime: { type: Date, required: true },
     endTime: { type: Date, required: true },
     link: String,
-    details: String
+    details: String,
+    comments: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Comment"
+        }
+    ]
 });
 
 const Event = mongoose.model("Event", eventSchema);
