@@ -13,4 +13,7 @@ router
     .put(eventController.update)
     .delete(eventController.remove);
 
+router.route("/populate/:id")
+    .get(eventController.populate);
+
 module.exports = router;

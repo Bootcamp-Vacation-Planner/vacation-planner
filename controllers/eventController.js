@@ -32,5 +32,19 @@ module.exports = {
             .then(dbModel => dbModel.remove())
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
-    }
+    },
+    populate: function(req, res) {
+        // Find all users
+        db.Event.findById({ _id: req.params.id })
+          // Specify that we want to populate the retrieved users with any associated notes
+          .populate("comments")
+          .then(function(dbModel) {
+            // If able to successfully find and associate all Users and Notes, send them back to the client
+            res.json(dbModel);
+          })
+          .catch(function(err) {
+            // If an error occurs, send it back to the client
+            res.json(err);
+          });
+      }
 }
