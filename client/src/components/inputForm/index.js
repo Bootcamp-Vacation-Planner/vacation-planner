@@ -1,25 +1,3 @@
-// import React from "react";
-// import "./style.css";
-
-
-// export function Input(props) {
-//     return (
-//       <div className="form-group">
-//         <input className="form-control" type="text" placeholer="Name of Activity" {...props} />
-//         <input className="form-control" type="date" placeholder="Date" {...props} />
-//         <input className="form-control" type="time" placeholder="Time" {...props} />
-//         <input className="form-control" type="text" placeholder="Details" {...props} />
-//         <button> Submit </button>
-
-//       </div>
-//     );
-//   }
-  
-  
-
-//   export default Input;
-
-
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -62,41 +40,23 @@ export default function TemporaryDrawer() {
     <div
       className={classes.list}
       role="presentation"
-      onClick={toggleDrawer(side, false)}
-      onKeyDown={toggleDrawer(side, false)}
+      onClick={toggleDrawer(side, true)}
+      onKeyDown={toggleDrawer(side, true)}
     >
-      <List>
-        {['Event Name', 'Date', 'Time', 'Details'].map((text, index) => (
-          <ListItem button key={text}>
-            {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+     <div className="form-group">
+        <input className="form-control-name" type="text" placeholer="Name of Activity"  />
+        <input className="form-control-date" type="date" placeholder="Date"  />
+        <input className="form-control-time" type="time" placeholder="Time"  />
+        <input className="form-control-details" type="text" placeholder="Details"  />
+        <button> Submit </button>
+
+      </div>
       <Divider />
   
     </div>
   );
 
-  const fullList = side => (
-    <div
-      className={classes.fullList}
-      role="presentation"
-      onClick={toggleDrawer(side, false)}
-      onKeyDown={toggleDrawer(side, false)}
-    >
-      <List>
-        {['Event Name', 'Date', 'Time', 'Details'].map((text, index) => (
-          <ListItem button key={text}>
-            {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
  
-    </div>
-  );
 
   return (
     <div>
