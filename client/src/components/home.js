@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Input from './inputForm'
-
+import TemporaryDrawer from './inputForm'
 class Home extends Component {
 
 
@@ -12,7 +12,9 @@ class Home extends Component {
             <div>
                 <p>It's good to be home</p>
                 <img style={imageStyle} alt="home" src="https://i.ytimg.com/vi/N1icEHtgb3g/maxresdefault.jpg" />
-                <Input/>
+                {/* <Input/> */}
+                {/* <SwipeableTemporaryDrawer/> */}
+                <TemporaryDrawer />
             </div>
         )
 
