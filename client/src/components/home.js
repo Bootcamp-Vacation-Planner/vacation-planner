@@ -11,7 +11,7 @@ class Home extends Component {
         return (
             <div>
                 <p>Plan your Itinerary!</p>
-               <container></container>
+               <container id= "input">Create Itinerary here</container>
                 {/* <Input/> */}
                 {/* <SwipeableTemporaryDrawer/> */}
                 <TemporaryDrawer />
