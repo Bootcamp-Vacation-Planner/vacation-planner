@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Input from './inputForm'
 import TemporaryDrawer from './inputForm'
+import SimpleContainer from './itineraryform'
 class Home extends Component {
 
 
@@ -10,10 +11,11 @@ class Home extends Component {
         }
         return (
             <div>
-                <p>It's good to be home</p>
-                <img style={imageStyle} alt="home" src="https://i.ytimg.com/vi/N1icEHtgb3g/maxresdefault.jpg" />
+                <p>Plan your Itinerary!</p>
+               <container id= "input">Create Itinerary here</container>
                 {/* <Input/> */}
                 {/* <SwipeableTemporaryDrawer/> */}
+                <SimpleContainer/>
                 <TemporaryDrawer />
             </div>
         )
