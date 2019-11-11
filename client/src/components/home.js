@@ -10,8 +10,8 @@ class Home extends Component {
         }
         return (
             <div>
-                <p>It's good to be home</p>
-                <img style={imageStyle} alt="home" src="https://i.ytimg.com/vi/N1icEHtgb3g/maxresdefault.jpg" />
+                <p>Plan your Itinerary!</p>
+               <container></container>
                 {/* <Input/> */}
                 {/* <SwipeableTemporaryDrawer/> */}
                 <TemporaryDrawer />
