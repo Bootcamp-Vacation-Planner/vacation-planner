@@ -1,3 +1,9 @@
+.background { 
+  background-image: url(./images/vacation.jpg);
+  background-size: cover;
+}
+
+
 .App {
   text-align: center;
 }
@@ -8,7 +14,7 @@
 }
 
 .App-header {
-  background-color: purple;
+  background-color: #785964;
   height: 150px;
   padding: 20px;
   color:white;
