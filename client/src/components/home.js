@@ -9,7 +9,7 @@ class Home extends Component {
             width: 400
         }
         return (
-            <div>
+            <div className="background">
                 <p>Plan your Itinerary!</p>
                <container id= "input">Create Itinerary here</container>
                 {/* <Input/> */}
