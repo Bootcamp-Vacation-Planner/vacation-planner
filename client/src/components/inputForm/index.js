@@ -14,7 +14,8 @@ import axios from 'axios';
 
 const useStyles = makeStyles({
   list: {
-    width: 250,
+    width: 400,
+    padding: 15
   },
   fullList: {
     width: 'auto',
@@ -48,7 +49,7 @@ export default function TemporaryDrawer(props) {
     >
       <div className="form-group">
         <p>Name of Event:</p>
-          <input className="form-control-name" type="text" placeholer="Event Name" name="name" value={props.dataName} onChange={props.handleInputChange}/>
+          <input className="form-control-name" type="text" placeholder="Event Name" name="name" value={props.dataName} onChange={props.handleInputChange}/>
         <p>Event Date:</p>
           <input className="form-control-date" type="date" placeholder="Date" name="date" value={props.date} onChange={props.handleInputChange}/>
         <p>Start Time:</p>
@@ -60,7 +61,6 @@ export default function TemporaryDrawer(props) {
         <button onClick={props.eventSubmit}> Submit </button>
 
       </div>
-      <Divider />
 
     </div>
   );
