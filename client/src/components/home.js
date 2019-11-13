@@ -31,6 +31,7 @@ class Home extends Component {
         this.setState({
           [name]: value
         });
+        console.log(this.state)
       };
 
     eventSubmit = event => {
@@ -57,20 +58,21 @@ class Home extends Component {
         }
         return (
             <div className="background">
-                <p>Plan your Itinerary!</p>
-               <container id= "input">Create Itinerary here</container>
+                <container id="itinerary">Plan your Itinerary!</container>
+               {/* <container id= "input">Create Itinerary here</container> */}
                 {/* <Input/> */}
                 {/* <SwipeableTemporaryDrawer/> */}
                 
-                <TemporaryDrawer 
-                    eventSubmit = {this.eventSubmit}
-                    handleInputChange = {this.handleInputChange}
-                    dataName = {this.state.name}
-                    date = {this.state.date}
-                    startTime = {this.state.startTime}
-                    endTime = {this.state.endTime}
-                    details = {this.state.details}
-                    />
+                <TemporaryDrawer
+                onChange= {this.handleInputChange}
+                dataName={this.state.data}
+                date={this.state.date}
+                startTime={this.state.startTime}
+                endTime={this.state.endTime}
+                details={this.state.details}
+
+
+                />
                 <br></br>
                 <SimpleContainer events={this.state.events}/>
             </div>
