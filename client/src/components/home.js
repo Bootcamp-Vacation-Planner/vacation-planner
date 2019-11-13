@@ -16,34 +16,18 @@ class Home extends Component {
         events:[]
     }
 
-     componentDidMount() {
-        // this.loaddata();
-      }
-    
-    // loadData = () => {
-    //     API.getData()
-    //       .then(res =>
-    //         this.setState({ data: res.data, eventDate: "", time: "", date: "", details:"" })
-    //       )
-    //       .catch(err => console.log(err));
-    //   };
+    componentDidMount(){
+      this.getEvents();
+    }
+
+    getEvents = () => {
+      axios.get("/api/events/").then(data=>this.setState({events:data.data}))
+    }
 
     
-
-    // handleFormSubmit = event => {
-    //     event.preventDefault();
-    //     if (this.state.eventDate && this.state.time) {
-    //       API.saveData({
-    //         eventDate: this.state.eventDate,
-    //         time: this.state.time,
-    //         details: this.state.details
-    //       })
-    //         .then(res => this.loadData())
-    //         .catch(err => console.log(err));
-    //     }
-    //   };
-      handleInputChange = event => {
-        const { name, value } = event.target;
+    handleInputChange = event => {
+        const value = event.target.value;
+        const name = event.target.name;
         this.setState({
           [name]: value
         });
@@ -51,8 +35,8 @@ class Home extends Component {
       };
 
     eventSubmit = event => {
-        let startDate = moment().toISOString(this.state.date + this.state.startTime);
-        let endDate = moment().toISOString(this.state.date + this.state.endTime)
+        let startDate = moment(this.state.date + " " + this.state.startTime).toISOString(true);
+        let endDate = moment(this.state.date + " " + this.state.endTime).toISOString(true);
         console.log(startDate);
         API.eventPost({
           name: this.state.name,
@@ -61,19 +45,12 @@ class Home extends Component {
           details: this.state.details,
           createdBy: this.props.userName
         })
-        .then(function (response) {
-          console.log(response);
-        })
+        .then(res => this.getEvents())
         .catch(function (error) {
           console.log(error);
         });
       }
 
-      componentDidMount(props){
-        if (this.props.loggedIn) {
-        axios.get("/api/events/").then(data=>this.setState({events:data.data})
-        )}
-      }
 
     render() {
         const imageStyle = {
@@ -86,7 +63,7 @@ class Home extends Component {
                 {/* <Input/> */}
                 {/* <SwipeableTemporaryDrawer/> */}
                 
-                <InputForm
+                <TemporaryDrawer
                 onChange= {this.handleInputChange}
                 dataName={this.state.data}
                 date={this.state.date}

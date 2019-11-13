@@ -1,11 +1,19 @@
+body{
+  height:100vh;
+  width:100vw;
+}
 .background { 
   background-image: url(./images/vacation.jpg);
   background-size: cover;
+  height: 100%;
+  width: 100%;
 }
 
 
 .App {
   text-align: center;
+  height:100vh;
+  width:100vw;
 }
 
 .App-logo {
