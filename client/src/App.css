@@ -18,7 +18,7 @@ body{
 
 /* } */
 .itinerary{
-  overflow: auto;
+  overflow-y:scroll;
   height: 100px;
 }
 
