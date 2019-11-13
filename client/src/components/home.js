@@ -45,9 +45,6 @@ class Home extends Component {
         console.log(this.state)
       };
 
-<<<<<<< HEAD
-    
-=======
     eventSubmit = event => {
         let startDate = moment().toISOString(this.state.date + this.state.startTime);
         let endDate = moment().toISOString(this.state.date + this.state.endTime)
@@ -68,7 +65,6 @@ class Home extends Component {
         });
       }
 
->>>>>>> master
     render() {
         const imageStyle = {
             width: 400
