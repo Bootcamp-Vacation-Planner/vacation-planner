@@ -3,6 +3,7 @@ import TemporaryDrawer from './inputForm';
 import SimpleContainer from './itineraryform';
 import moment from 'moment';
 import API from '../utils/API';
+import axios from "axios";
 
 class Home extends Component {
     state = {
@@ -41,9 +42,10 @@ class Home extends Component {
         });
       }
 
-      componentDidMount(){
+      componentDidMount(props){
+        if (this.props.loggedIn) {
         axios.get("/api/events/").then(data=>this.setState({events:data.data})
-        )
+        )}
       }
 
     render() {
