@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import TemporaryDrawer from './inputForm';
 import SimpleContainer from './itineraryform';
-import axios from 'axios';
 import moment from 'moment';
+import API from '../utils/API';
 
 class Home extends Component {
     state = {
@@ -25,6 +25,7 @@ class Home extends Component {
         let startDate = moment().toISOString(this.state.date + this.state.startTime);
         let endDate = moment().toISOString(this.state.date + this.state.endTime)
         console.log(startDate);
+<<<<<<< HEAD
 
         axios.post('/api/events', {
             name: this.state.name,
@@ -32,6 +33,17 @@ class Home extends Component {
             endTime: endDate,
             details: this.state.details,
             createdBy: this.props.userName
+=======
+        API.eventPost({
+          name: this.state.name,
+          startTime: startDate,
+          endTime: endDate,
+          details: this.state.details,
+          createdBy: this.props.userName
+        })
+        .then(function (response) {
+          console.log(response);
+>>>>>>> master
         })
             .then(function (response) {
                 console.log(response);
