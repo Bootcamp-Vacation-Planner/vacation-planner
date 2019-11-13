@@ -30,8 +30,12 @@ class Home extends Component {
             name: this.state.name,
             startTime: startDate,
             endTime: endDate,
-            details: this.state.details
+            details: this.state.details,
+            createdBy: this.props.userName
         })
+            .then(function (response) {
+                console.log(response);
+            })
             .then(function (response) {
                 console.log(response);
             })

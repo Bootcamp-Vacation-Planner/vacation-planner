@@ -7,6 +7,7 @@ const eventSchema = new Schema({
     endTime: { type: Date, required: true },
     link: String,
     details: String,
+    createdBy: {type: String, required: true },
     comments: [
         {
             type: Schema.Types.ObjectId,
