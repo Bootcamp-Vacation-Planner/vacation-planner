@@ -1,67 +1,76 @@
-import React, { Component } from 'react';
-import TemporaryDrawer from './inputForm';
-import SimpleContainer from './itineraryform';
-import axios from 'axios';
-import moment from 'moment';
-
+import React, { Component } from 'react'
+import InputForm from './inputForm'
+import API from '../utils/API'
+import SimpleContainer from './itineraryform'
 class Home extends Component {
-    state = {
-        name: "",
-        date: "",
-        startTime: "",
-        endTime: "",
-        details: ""
+    state={
+        data:[],
+        eventDate: "",
+        startTime:"",
+        endTime:"",
+        details:""
     }
 
-    handleInputChange = event => {
-        const value = event.target.value;
-        const name = event.target.name;
+     componentDidMount() {
+        // this.loaddata();
+      }
+    
+    // loadData = () => {
+    //     API.getData()
+    //       .then(res =>
+    //         this.setState({ data: res.data, eventDate: "", time: "", date: "", details:"" })
+    //       )
+    //       .catch(err => console.log(err));
+    //   };
+
+    
+
+    // handleFormSubmit = event => {
+    //     event.preventDefault();
+    //     if (this.state.eventDate && this.state.time) {
+    //       API.saveData({
+    //         eventDate: this.state.eventDate,
+    //         time: this.state.time,
+    //         details: this.state.details
+    //       })
+    //         .then(res => this.loadData())
+    //         .catch(err => console.log(err));
+    //     }
+    //   };
+      handleInputChange = event => {
+        const { name, value } = event.target;
         this.setState({
           [name]: value
         });
+        console.log(this.state)
       };
 
-    eventSubmit = event => {
-        let startDate = moment().toISOString(this.state.date + this.state.startTime);
-        let endDate = moment().toISOString(this.state.date + this.state.endTime)
-        console.log(startDate);
-        
-        axios.post('/api/events', {
-          name: this.state.name,
-          startTime: startDate,
-          endTime: endDate,
-          details: this.state.details
-        })
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-      }
-
+    
     render() {
         const imageStyle = {
             width: 400
         }
         return (
             <div className="background">
-                <p>Plan your Itinerary!</p>
-               <container id= "input">Create Itinerary here</container>
+                <container id="itinerary">Plan your Itinerary!</container>
+               {/* <container id= "input">Create Itinerary here</container> */}
                 {/* <Input/> */}
                 {/* <SwipeableTemporaryDrawer/> */}
                 
-                <TemporaryDrawer 
-                    eventSubmit = {this.eventSubmit}
-                    handleInputChange = {this.handleInputChange}
-                    dataName = {this.state.name}
-                    date = {this.state.date}
-                    startTime = {this.state.startTime}
-                    endTime = {this.state.endTime}
-                    details = {this.state.details}
-                    />
+                <InputForm
+                onChange= {this.handleInputChange}
+                dataName={this.state.data}
+                date={this.state.date}
+                startTime={this.state.startTime}
+                endTime={this.state.endTime}
+                details={this.state.details}
+
+
+                />
                 <br></br>
                 <SimpleContainer/>
+                <br/>
+                <br/>
             </div>
         )
 
