@@ -6,6 +6,7 @@ import Signup from './components/sign-up'
 import LoginForm from './components/login-form'
 import Navbar from './components/navbar'
 import Home from './components/home'
+import Likes from './components/likes'
 
 class App extends Component {
   constructor() {
@@ -75,7 +76,11 @@ class App extends Component {
           render={() =>
             <Signup />}
         />
-
+        <Route
+          path="/nick"
+          render={() =>
+            <Likes />}
+        />
       </div>
     );
   }
