@@ -17,28 +17,28 @@ class Home extends Component {
         const value = event.target.value;
         const name = event.target.name;
         this.setState({
-          [name]: value
+            [name]: value
         });
-      };
+    };
 
     eventSubmit = event => {
         let startDate = moment().toISOString(this.state.date + this.state.startTime);
         let endDate = moment().toISOString(this.state.date + this.state.endTime)
         console.log(startDate);
-        
+
         axios.post('/api/events', {
-          name: this.state.name,
-          startTime: startDate,
-          endTime: endDate,
-          details: this.state.details
+            name: this.state.name,
+            startTime: startDate,
+            endTime: endDate,
+            details: this.state.details
         })
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-      }
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
 
     render() {
         const imageStyle = {
@@ -50,21 +50,15 @@ class Home extends Component {
                 <container id="input">Create Itinerary here</container>
                 {/* <Input/> */}
                 {/* <SwipeableTemporaryDrawer/> */}
-<<<<<<< HEAD
-
-                <TemporaryDrawer />
-=======
-                
-                <TemporaryDrawer 
-                    eventSubmit = {this.eventSubmit}
-                    handleInputChange = {this.handleInputChange}
-                    dataName = {this.state.name}
-                    date = {this.state.date}
-                    startTime = {this.state.startTime}
-                    endTime = {this.state.endTime}
-                    details = {this.state.details}
-                    />
->>>>>>> master
+                <TemporaryDrawer
+                    eventSubmit={this.eventSubmit}
+                    handleInputChange={this.handleInputChange}
+                    dataName={this.state.name}
+                    date={this.state.date}
+                    startTime={this.state.startTime}
+                    endTime={this.state.endTime}
+                    details={this.state.details}
+                />
                 <br></br>
                 <SimpleContainer />
 
