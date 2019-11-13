@@ -66,6 +66,7 @@ class App extends Component {
           render={() =>
             <Home
               userName={this.state.username}
+              loggedIn={this.state.loggedIn}
             />} />
         <Route
           path="/login"
