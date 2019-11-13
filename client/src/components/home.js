@@ -1,14 +1,19 @@
-import React, { Component } from 'react'
-import InputForm from './inputForm'
-import API from '../utils/API'
-import SimpleContainer from './itineraryform'
+import React, { Component } from 'react';
+import TemporaryDrawer from './inputForm';
+import SimpleContainer from './itineraryform';
+import moment from 'moment';
+import API from '../utils/API';
+import axios from "axios";
+
+
 class Home extends Component {
-    state={
-        data:[],
-        eventDate: "",
-        startTime:"",
-        endTime:"",
-        details:""
+    state = {
+        name: "",
+        date: "",
+        startTime: "",
+        endTime: "",
+        details: "",
+        events:[]
     }
 
      componentDidMount() {
@@ -49,8 +54,7 @@ class Home extends Component {
         let startDate = moment().toISOString(this.state.date + this.state.startTime);
         let endDate = moment().toISOString(this.state.date + this.state.endTime)
         console.log(startDate);
-        
-        axios.post('/api/events', {
+        API.eventPost({
           name: this.state.name,
           startTime: startDate,
           endTime: endDate,
@@ -63,6 +67,12 @@ class Home extends Component {
         .catch(function (error) {
           console.log(error);
         });
+      }
+
+      componentDidMount(props){
+        if (this.props.loggedIn) {
+        axios.get("/api/events/").then(data=>this.setState({events:data.data})
+        )}
       }
 
     render() {
@@ -87,9 +97,7 @@ class Home extends Component {
 
                 />
                 <br></br>
-                <SimpleContainer/>
-                <br/>
-                <br/>
+                <SimpleContainer events={this.state.events}/>
             </div>
         )
 
