@@ -10,7 +10,8 @@ class Home extends Component {
         date: "",
         startTime: "",
         endTime: "",
-        details: ""
+        details: "",
+        events:[]
     }
 
     handleInputChange = event => {
@@ -41,6 +42,11 @@ class Home extends Component {
         });
       }
 
+      componentDidMount(){
+        axios.get("/api/events/").then(data=>this.setState({events:data.data})
+        )
+      }
+
     render() {
         const imageStyle = {
             width: 400
@@ -62,7 +68,7 @@ class Home extends Component {
                     details = {this.state.details}
                     />
                 <br></br>
-                <SimpleContainer/>
+                <SimpleContainer events={this.state.events}/>
             </div>
         )
 
