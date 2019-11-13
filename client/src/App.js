@@ -80,11 +80,7 @@ class App extends Component {
           render={() =>
             <Signup />}
         />
-        <Route
-          path="/nick"
-          render={() =>
-            <Likes />}
-        />
+
       </div>
     );
   }

@@ -13,7 +13,8 @@ class Home extends Component {
     startTime: "",
     endTime: "",
     details: "",
-    events: []
+    events: [],
+
   }
 
   componentDidMount() {
@@ -50,7 +51,22 @@ class Home extends Component {
       });
   }
 
+  incrementMe = () => {
+    let newCount = this.state.count + 1
+    this.setState({
+      count: newCount
+    })
+  }
 
+  likeClicker = event => {
+    let eventID = event.target.eventID;
+    let newLikes = event.target.likeNumber;
+    console.log(newLikes);
+    console.log(eventID);
+    API.likeUpdate(
+      eventID, this.incrementMe
+    )
+  }
 
   render() {
     const imageStyle = {
@@ -72,7 +88,7 @@ class Home extends Component {
           details={this.state.details}
         />
         <br></br>
-        <SimpleContainer events={this.state.events} />
+        <SimpleContainer events={this.state.events} likeClicker={this.likeClicker} />
       </div >
     )
 

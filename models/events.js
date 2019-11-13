@@ -7,13 +7,14 @@ const eventSchema = new Schema({
     endTime: { type: Date, required: true },
     link: String,
     details: String,
-    createdBy: {type: String, required: true },
+    createdBy: { type: String, required: true },
     comments: [
         {
             type: Schema.Types.ObjectId,
             ref: "Comment"
         }
-    ]
+    ],
+    likes: Number
 });
 
 const Event = mongoose.model("Event", eventSchema);
