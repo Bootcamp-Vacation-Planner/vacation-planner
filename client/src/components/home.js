@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import TemporaryDrawer from './inputForm';
 import SimpleContainer from './itineraryform';
 import axios from 'axios';
+import moment from 'moment';
 
 class Home extends Component {
     state = {
-        value: "",
         name: "",
         date: "",
         startTime: "",
@@ -22,9 +22,15 @@ class Home extends Component {
       };
 
     eventSubmit = event => {
+        let startDate = moment().toISOString(this.state.date + this.state.startTime);
+        let endDate = moment().toISOString(this.state.date + this.state.endTime)
+        console.log(startDate);
+        
         axios.post('/api/events', {
-          name: 'Fred',
-          lastName: 'Flintstone'
+          name: this.state.name,
+          startTime: startDate,
+          endTime: endDate,
+          details: this.state.details
         })
         .then(function (response) {
           console.log(response);
@@ -48,7 +54,11 @@ class Home extends Component {
                 <TemporaryDrawer 
                     eventSubmit = {this.eventSubmit}
                     handleInputChange = {this.handleInputChange}
-                    value = {this.state.value}
+                    dataName = {this.state.name}
+                    date = {this.state.date}
+                    startTime = {this.state.startTime}
+                    endTime = {this.state.endTime}
+                    details = {this.state.details}
                     />
                 <br></br>
                 <SimpleContainer/>
