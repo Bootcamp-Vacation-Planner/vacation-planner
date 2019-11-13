@@ -16,6 +16,15 @@ class Home extends Component {
     events: []
   }
 
+  componentDidMount() {
+    this.getEvents();
+  }
+
+  getEvents = () => {
+    axios.get("/api/events/").then(data => this.setState({ events: data.data }))
+  }
+
+
   handleInputChange = event => {
     const value = event.target.value;
     const name = event.target.name;
@@ -35,18 +44,12 @@ class Home extends Component {
       details: this.state.details,
       createdBy: this.props.userName
     })
-      .then(function (response) {
-        console.log(response);
-      })
+      .then(res => this.getEvents())
       .catch(function (error) {
         console.log(error);
       });
   }
 
-  componentDidMount() {
-    axios.get("/api/events/").then(data => this.setState({ events: data.data })
-    )
-  }
 
 
   render() {
