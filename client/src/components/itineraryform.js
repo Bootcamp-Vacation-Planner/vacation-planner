@@ -25,9 +25,6 @@ export default function SimpleContainer(props) {
               <Typography variant="h5" component="h2">
                   {e.name}
                 </Typography>
-                {/* <Typography variant="h5" component="h2">
-                  {e.date}
-                </Typography> */}
                 <Typography variant="h5" component="h2">
                   {e.startTime}
                 </Typography>
