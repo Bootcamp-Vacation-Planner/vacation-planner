@@ -4,6 +4,7 @@ import SimpleContainer from './itineraryform';
 import moment from 'moment';
 import API from '../utils/API';
 import axios from "axios";
+import Likes from './likes';
 
 
 class Home extends Component {
@@ -14,7 +15,7 @@ class Home extends Component {
     endTime: "",
     details: "",
     events: [],
-
+    likes: ""
   }
 
   componentDidMount() {

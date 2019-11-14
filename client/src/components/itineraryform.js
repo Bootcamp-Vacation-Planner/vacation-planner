@@ -15,7 +15,7 @@ export default function SimpleContainer(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="sm">
+      <Container className="simplecontainer" maxWidth="sm">
         <Typography component="div" style={{ backgroundColor: '#9C97C1', height: '100vh', opacity: .9 }} >
           {console.log(props.events)
           }

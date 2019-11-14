@@ -68,12 +68,12 @@ export default function TemporaryDrawer(props) {
 
 
   return (
-    <div>
+    <container className="addevent">
       <Button onClick={toggleDrawer('left', true)}>Add Event</Button>
       <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
         {sideList('left')}
       </Drawer>
 
-    </div>
+    </container>
   );
 }

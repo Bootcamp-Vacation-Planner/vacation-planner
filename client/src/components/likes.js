@@ -13,17 +13,17 @@ import Button from '@material-ui/core/Button';
 // const classes = useStyles();
 
 class Likes extends Component {
-    // state = {
-    //     count: 0
-    // }
-    // incrementMe = () => {
-    //     let newCount = this.state.count + 1
-    //     this.setState({
-    //         count: newCount
-    //     })
-    // }
+    state = {
+        count: 0
+    }
+    incrementMe = () => {
+        let newCount = this.state.count + 1
+        this.setState({
+            count: newCount
+        })
+    }
+    // render(props) {
     render(props) {
-
         return (
             <div>
                 <Button likeNumber={this.props.likenumber} eventID={this.props.eventid} variant="outlined" size="large" color="primary" onClick={this.props.likeclicker}
