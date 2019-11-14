@@ -8,8 +8,6 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-import { borderRight } from '@material-ui/system';
-import { borderLeft } from '@material-ui/system';
 import Likes from './likes';
 export default function SimpleContainer(props) {
   return (
