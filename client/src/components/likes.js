@@ -33,12 +33,10 @@ class Likes extends Component {
         console.log(likes1);
         likes1 += 1;
 
-
         // this.setState({
         //     likes: 6
         // })
-        // console.log(this.state.likes);
-        // console.log(eventID);
+
         API.likeUpdate(
             eventid, likes1
         )
