@@ -32,7 +32,13 @@ html {
   overflow-y:scroll;
   height: 600px;
 }
-
+ .addevent{
+  font-family: 'Dosis', sans-serif;
+  /* background-color: #4EC3CE;
+  border-radius: 5px;
+  border-style: solid; */
+   
+ } 
 .App {
   text-align: center;
   /* background-image: url(./images/vacation.jpg);
@@ -55,15 +61,19 @@ html {
 
 .App-title {
   font-size: 1.5em;
+  font-family: 'Dosis', sans-serif;
 }
 
 .App-intro {
   font-size: large;
+  font-family: 'Dosis', sans-serif;
 }
 
 .navbar {
  
   margin-top: auto;
+  font-family: 'Dosis', sans-serif;
+  
   
 }
 #top-filler {
