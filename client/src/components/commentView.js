@@ -45,6 +45,13 @@ export default function SimpleModal(props) {
         .then(data=>{
           commentArray = data.data.comments;
           console.log(commentArray);
+          commentArray.map(e => {
+            let text = e.body
+            let node = document.createElement("p");
+            let textnode = document.createTextNode(text);
+            node.appendChild(textnode);
+            document.getElementById("commentContainer").appendChild(node);
+          })
         })
     };
   
@@ -64,18 +71,11 @@ export default function SimpleModal(props) {
           onClose={handleClose}
         >
 
-          <div style={modalStyle} className={classes.paper}>
-          {commentArray.map((e) => {
-            return (console.log(e.body)
+          <div style={modalStyle} className={classes.paper} id="commentContainer">
             
-            // <div>
-            //     {/* <h2 id="simple-modal-title">Text in a modal</h2> */}
-            //     <p id="simple-modal-description">
-            //     {e.body}
-            //     </p>
-            // </div>
-            )
-          })}
+            {/* <h2 id="simple-modal-title">Text in a modal</h2> */}
+
+
 
           </div>
         </Modal>
