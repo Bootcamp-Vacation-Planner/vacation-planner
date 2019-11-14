@@ -58,10 +58,6 @@ class Home extends Component {
         }
         return (
             <div className="background">
-                {/* <container id="itinerary">Plan your Itinerary!</container> */}
-               {/* <container id= "input">Create Itinerary here</container> */}
-                {/* <Input/> */}
-                {/* <SwipeableTemporaryDrawer/> */}
                 
                 <TemporaryDrawer
                 onChange= {this.handleInputChange}
