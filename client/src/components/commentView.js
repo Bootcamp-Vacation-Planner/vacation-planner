@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
+import axios from 'axios';
 
 function rand() {
     return Math.round(Math.random() * 20) - 10;
@@ -28,6 +29,7 @@ const useStyles = makeStyles(theme => ({
     },
   }));
 
+let commentArray = [];
 
 
 export default function SimpleModal(props) {
@@ -35,9 +37,12 @@ export default function SimpleModal(props) {
     // getModalStyle is not a pure function, we roll the style only on the first render
     const [modalStyle] = React.useState(getModalStyle);
     const [open, setOpen] = React.useState(false);
-  
+    let grabID = props.id
+    console.log(grabID);
+
     const handleOpen = () => {
       setOpen(true);
+      axios.get("/api/events/populate/"+grabID).then(data=>{console.log(data.data.comments)})
     };
   
     const handleClose = () => {
@@ -60,7 +65,6 @@ export default function SimpleModal(props) {
             <p id="simple-modal-description">
               Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
             </p>
-            <SimpleModal />
           </div>
         </Modal>
       </div>
