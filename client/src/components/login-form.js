@@ -58,7 +58,12 @@ class LoginForm extends Component {
             return (
                 <container className="login">
                 <div className="SignupForm background" >
-				<h4>Login</h4>
+                <p>    </p>
+				<p>    </p>
+				<p>    </p>
+				<p>    </p>
+				<p>    </p>
+				<h2 id="login">Login</h2>
 				<form className="form-horizontal">
 					<div className="form-group">
 						<div className="col-1 col-ml-auto">
