@@ -38,11 +38,14 @@ export default function SimpleModal(props) {
     const [modalStyle] = React.useState(getModalStyle);
     const [open, setOpen] = React.useState(false);
     let grabID = props.id
-    console.log(grabID);
 
     const handleOpen = () => {
       setOpen(true);
-      axios.get("/api/events/populate/"+grabID).then(data=>{console.log(data.data.comments)})
+      axios.get("/api/events/populate/"+grabID)
+        .then(data=>{
+          commentArray = data.data.comments;
+          console.log(commentArray);
+        })
     };
   
     const handleClose = () => {
@@ -60,11 +63,20 @@ export default function SimpleModal(props) {
           open={open}
           onClose={handleClose}
         >
+
           <div style={modalStyle} className={classes.paper}>
-            <h2 id="simple-modal-title">Text in a modal</h2>
-            <p id="simple-modal-description">
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </p>
+          {commentArray.map((e) => {
+            return (console.log(e.body)
+            
+            // <div>
+            //     {/* <h2 id="simple-modal-title">Text in a modal</h2> */}
+            //     <p id="simple-modal-description">
+            //     {e.body}
+            //     </p>
+            // </div>
+            )
+          })}
+
           </div>
         </Modal>
       </div>
