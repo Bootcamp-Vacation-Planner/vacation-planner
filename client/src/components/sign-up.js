@@ -50,7 +50,7 @@ class Signup extends Component {
 		return (
 			
 			<div className="SignupForm background" >
-				<h4>Sign up</h4>
+				<container id="signup"><h2>Sign up</h2></container>
 				<form className="form-horizontal">
 					<div className="form-group">
 						<div className="col-1 col-ml-auto">
@@ -75,6 +75,7 @@ class Signup extends Component {
 							<input className="form-input"
 								placeholder="password"
 								type="password"
+								id="password"
 								name="password"
 								value={this.state.password}
 								onChange={this.handleChange}
