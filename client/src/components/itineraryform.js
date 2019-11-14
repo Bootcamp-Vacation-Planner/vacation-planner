@@ -10,7 +10,9 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import { borderRight } from '@material-ui/system';
 import { borderLeft } from '@material-ui/system';
-import CommentForm from './comment';
+import { Link } from 'react-router-dom'
+import SimpleModal from '../components/commentView';
+
 export default function SimpleContainer(props) {
   return (
     <React.Fragment>
@@ -39,8 +41,13 @@ export default function SimpleContainer(props) {
               </CardContent>
               <CardActions>
                 <Button size="small">Like</Button>
+                {/* <Button size="small" id = {e._id} onClick={props.commentClick}>Comments</Button> */}
               </CardActions>
-              <CommentForm />
+              
+              {/* <Link to="/comments">
+              <button id = {e._id} onClick={props.commentClick}>Comments </button>
+              </Link> */}
+              <SimpleModal id={e._id}/>
             </Card>
           )}
         </Typography>

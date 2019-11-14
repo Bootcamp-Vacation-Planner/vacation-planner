@@ -13,7 +13,8 @@ class Home extends Component {
         startTime: "",
         endTime: "",
         details: "",
-        events:[]
+        events:[],
+        commentId:""
     }
 
     componentDidMount(){
@@ -22,6 +23,8 @@ class Home extends Component {
 
     getEvents = () => {
       axios.get("/api/events/").then(data=>this.setState({events:data.data}))
+      console.log(this.state.events);
+      
     }
 
     
@@ -51,6 +54,13 @@ class Home extends Component {
         });
       }
 
+    commentClick = event => {
+        console.log("You clicked comment");
+        console.log(event.target.id);
+        this.setState({
+          commentId: event.target.id
+        });
+    }
 
     render() {
         const imageStyle = {
@@ -74,7 +84,7 @@ class Home extends Component {
 
                 />
                 <br></br>
-                <SimpleContainer events={this.state.events}/>
+                <SimpleContainer userName = {this.props.userName} events={this.state.events} commentClick={this.commentClick}/>
             </div>
         )
 
