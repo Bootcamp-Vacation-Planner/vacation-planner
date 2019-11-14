@@ -15,7 +15,7 @@ class Home extends Component {
     endTime: "",
     details: "",
     events: [],
-    likes: ""
+    likes: 0
   }
 
   componentDidMount() {
@@ -52,20 +52,30 @@ class Home extends Component {
       });
   }
 
-  incrementMe = () => {
-    let newCount = this.state.count + 1
-    this.setState({
-      count: newCount
-    })
-  }
+  // incrementMe = () => {
+  //   let newCount = this.state.likes + 1
+  //   this.setState({
+  //     likes: newCount
+  //   })
+  // }
 
-  likeClicker = event => {
-    let eventID = event.target.eventID;
-    let newLikes = event.target.likeNumber;
-    console.log(newLikes);
-    console.log(eventID);
+  likeClicker = (eventid, likes1) => {
+    console.log(eventid);
+
+    // let eventID = event.target.eventid;
+    // let newLikes = event.target.likenumber;
+    console.log(likes1);
+
+    // this.forceUpdate({
+    //   likes: likes1 + 1
+    // })
+    this.setState({
+      likes: likes1 + 1
+    })
+    console.log(this.state.likes);
+    // console.log(eventID);
     API.likeUpdate(
-      eventID, this.incrementMe
+      eventid, this.state.likes
     )
   }
 

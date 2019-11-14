@@ -6,6 +6,8 @@ export default {
             data)
     },
     likeUpdate: function (eventID, data) {
-        return axios.put("/api/events/" + eventID, data)
+        console.log(data);
+
+        return axios.put("/api/events/" + eventID, { "likes": data })
     }
 }

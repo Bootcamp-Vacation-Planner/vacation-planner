@@ -14,12 +14,13 @@ const eventSchema = new Schema({
             ref: "Comment"
         }
     ],
-    likes: Number[
-        {
-            type: Schema.Types.ObjectId,
-            ref: "Likes"
-        }
-    ]
+    likes: Number
+    // [
+    //     {
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Likes"
+    //     }
+    // ]
 });
 
 const Event = mongoose.model("Event", eventSchema);

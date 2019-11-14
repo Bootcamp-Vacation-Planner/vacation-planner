@@ -21,7 +21,8 @@ export default function SimpleContainer(props) {
           }
           {props.events.map(e =>
 
-            <Card>
+
+            < Card >
               <CardContent>
                 <Typography variant="h5" component="h2">
                   {e.name}
@@ -39,13 +40,15 @@ export default function SimpleContainer(props) {
               </CardContent>
               <CardActions>
                 {/* <Button size="small">Like</Button> */}
+                {/* {e.likes} */}
                 <Likes likenumber={e.likes} eventid={e._id} likeclicker={props.likeClicker} />
               </CardActions>
+              {/* <button likenumber={e.likes} eventid={e._id} likeclicker={props.likeClicker} >test</button> */}
             </Card>
           )}
         </Typography>
 
       </Container>
-    </React.Fragment>
+    </React.Fragment >
   );
 }
