@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
+import moment from 'moment';
+import axios from "axios";
 
-function CommentForm () {
-    return (
-        <form>
-            <p>Comment</p>
-            <textarea>Here's a place to write a comment</textarea>
-            <button type="submit">Submit</button>
-        </form>
-    )
+
+class CommentForm extends Component {
+ 
+    render() {
+        return (
+            <form>
+                <textarea name="body" value={this.props.body} onChange={this.props.handleInputChange}>Add a comment.</textarea>
+                <button type="submit" onClick={this.props.commentSubmit}>Submit</button>
+            </form>
+        )
+    }    
+
+
 }
 
 export default CommentForm;

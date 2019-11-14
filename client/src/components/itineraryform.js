@@ -44,7 +44,7 @@ export default function SimpleContainer(props) {
               {/* <Link to="/comments">
               <button id = {e._id} onClick={props.commentClick}>Comments </button>
               </Link> */}
-              <SimpleModal id={e._id}/>
+              <SimpleModal id={e._id} user={props.userName} state={props.body} handleInputChange={props.handleInputChange} commentSubmit={props.commentSubmit}/>
             </Card>
           )}
         </Typography>

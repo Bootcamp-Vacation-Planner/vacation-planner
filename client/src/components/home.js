@@ -14,7 +14,8 @@ class Home extends Component {
         endTime: "",
         details: "",
         events:[],
-        commentId:""
+        commentId:"",
+        body:""
     }
 
     componentDidMount(){
@@ -27,6 +28,34 @@ class Home extends Component {
       
     }
 
+    commentSubmit = event => { 
+      event.preventDefault();
+      console.log(this.state.body);
+      let creationDate = moment().toISOString(true);
+      // axios.post('/api/comments/', {
+      //     createdOn: creationDate,
+      //     createdBy: this.props.user,
+      //     body: 
+
+      //   })
+      //   .then(function (response) {
+      //     console.log(response);
+      //   })
+      //   .catch(function (error) {
+      //     console.log(error);
+      //   });
+      // API.eventPost({
+      //   name: this.state.name,
+      //   startTime: startDate,
+      //   endTime: endDate,
+      //   details: this.state.details,
+      //   createdBy: this.props.userName
+      // })
+      // .then(res => this.getEvents())
+      // .catch(function (error) {
+      //   console.log(error);
+      // });
+    }
     
     handleInputChange = event => {
         const value = event.target.value;
@@ -53,14 +82,6 @@ class Home extends Component {
         });
       }
 
-    commentClick = event => {
-        console.log("You clicked comment");
-        console.log(event.target.id);
-        this.setState({
-          commentId: event.target.id
-        });
-    }
-
     render() {
         const imageStyle = {
             width: 400
@@ -81,7 +102,13 @@ class Home extends Component {
 
                 />
                 <br></br>
-                <SimpleContainer userName = {this.props.userName} events={this.state.events} commentClick={this.commentClick}/>
+                <SimpleContainer 
+                userName = {this.props.userName} 
+                events={this.state.events} 
+                body={this.state.body} 
+                handleInputChange={this.handleInputChange}
+                commentSubmit={this.commentSubmit}
+                />
             </div>
         )
 

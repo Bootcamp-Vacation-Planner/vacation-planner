@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import axios from 'axios';
+import CommentForm from './commentForm';
 
 function rand() {
     return Math.round(Math.random() * 20) - 10;
@@ -38,21 +39,24 @@ export default function SimpleModal(props) {
     const [modalStyle] = React.useState(getModalStyle);
     const [open, setOpen] = React.useState(false);
     let grabID = props.id
+    const getComments = () => {
+      axios.get("/api/events/populate/"+grabID)
+      .then(data=>{
+        commentArray = data.data.comments;
+        console.log(commentArray);
+        commentArray.map(e => {
+          let text = e.body
+          let node = document.createElement("p");
+          let textnode = document.createTextNode(text);
+          node.appendChild(textnode);
+          document.getElementById("commentContainer").appendChild(node);
+        })
+      })
+    }
 
     const handleOpen = () => {
       setOpen(true);
-      axios.get("/api/events/populate/"+grabID)
-        .then(data=>{
-          commentArray = data.data.comments;
-          console.log(commentArray);
-          commentArray.map(e => {
-            let text = e.body
-            let node = document.createElement("p");
-            let textnode = document.createTextNode(text);
-            node.appendChild(textnode);
-            document.getElementById("commentContainer").appendChild(node);
-          })
-        })
+      getComments();
     };
   
     const handleClose = () => {
@@ -71,12 +75,9 @@ export default function SimpleModal(props) {
           onClose={handleClose}
         >
 
-          <div style={modalStyle} className={classes.paper} id="commentContainer">
-            
-            {/* <h2 id="simple-modal-title">Text in a modal</h2> */}
-
-
-
+          <div style={modalStyle} className={classes.paper}>
+            <div id="commentContainer"></div>
+            <CommentForm id={props.id} getComments={getComments} user={props.user} body={props.body} handleInputChange={props.handleInputChange} commentSubmit={props.commentSubmit}/>
           </div>
         </Modal>
       </div>
