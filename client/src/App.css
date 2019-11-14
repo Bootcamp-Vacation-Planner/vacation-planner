@@ -92,15 +92,15 @@ html {
   font-family: 'Dosis', sans-serif;
 }
 #username.form-input:hover{
-  background-color: #EA9C8B;
+  background-color:#32EFBD;
   border-radius: 5px;
 }
   #password.form-input:hover{
-    background-color: #EA9C8B;
+    background-color: #32EFBD;
     border-radius: 5px;
 }
 .form-input:hover{
-  background-color: #EA9C8B;
+  background-color:#32EFBD;
   border-radius: 5px;
 
 }
