@@ -50,6 +50,13 @@ class Signup extends Component {
 		return (
 			
 			<div className="SignupForm background" >
+				<p>    </p>
+				<p>    </p>
+				<p>    </p>
+				<p>    </p>
+				<p>    </p>
+				<p>    </p>
+				<p>    </p>
 				<container id="signup"><h2>Sign up</h2></container>
 				<form className="form-horizontal">
 					<div className="form-group">
