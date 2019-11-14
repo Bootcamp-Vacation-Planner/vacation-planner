@@ -3,6 +3,13 @@ body{
   width:100vw;
 }
 
+#signup{
+  font-family: 'Dosis', sans-serif;
+  color:white;
+  background-color:#785964;
+
+}
+
 
 html { 
   background: url(./images/vacation.jpg) no-repeat center center fixed; 
@@ -43,10 +50,10 @@ html {
    text-align: center;
    margin-left: 20%;
  } */
- .password{
+ /* .password{
    background-color: blue;
    margin-left:200px;
- }
+ } */
 .App {
   text-align: center;
   /* background-image: url(./images/vacation.jpg);
@@ -68,8 +75,22 @@ html {
 }
 
 .App-title {
+  /* background-color: blue; */
   font-size: 1.5em;
   font-family: 'Dosis', sans-serif;
+}
+#username.form-input:hover{
+  background-color: #FFDDDD;
+  border-radius: 5px;
+}
+  #password.form-input:hover{
+    background-color: #FFDDDD;
+    border-radius: 5px;
+}
+.form-input:hover{
+  background-color: #FFDDDD;
+  border-radius: 5px;
+
 }
 
 .App-intro {

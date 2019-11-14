@@ -56,6 +56,7 @@ class LoginForm extends Component {
             return <Redirect to={{ pathname: this.state.redirectTo }} />
         } else {
             return (
+                <container className="login">
                 <div className="SignupForm background" >
 				<h4>Login</h4>
 				<form className="form-horizontal">
@@ -80,7 +81,8 @@ class LoginForm extends Component {
 						</div>
 						<div className="col-3 col-mr-auto">
 							<input className="form-input"
-								placeholder="password"
+                                placeholder="password"
+                                id="password"
 								type="password"
 								name="password"
 								value={this.state.password}
@@ -98,6 +100,7 @@ class LoginForm extends Component {
 					</div>
 				</form>
 			</div>
+            </container>
             )
         }
     }
