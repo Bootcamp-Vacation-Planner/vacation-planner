@@ -8,6 +8,7 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
+import Likes from './likes';
 export default function SimpleContainer(props) {
   return (
     <React.Fragment>
@@ -18,9 +19,10 @@ export default function SimpleContainer(props) {
           }
           {props.events.map(e =>
 
-            <Card>
+
+            < Card >
               <CardContent>
-              <Typography variant="h5" component="h2">
+                <Typography variant="h5" component="h2">
                   {e.name}
                 </Typography>
                 {/* <Typography variant="h5" component="h2">
@@ -35,13 +37,16 @@ export default function SimpleContainer(props) {
 
               </CardContent>
               <CardActions>
-                <Button size="small">Like</Button>
+                {/* <Button size="small">Like</Button> */}
+                {/* {e.likes} */}
+                <Likes likenumber={e.likes} eventid={e._id} likeclicker={props.likeClicker} />
               </CardActions>
+              {/* <button likenumber={e.likes} eventid={e._id} likeclicker={props.likeClicker} >test</button> */}
             </Card>
           )}
         </Typography>
 
       </Container>
-    </React.Fragment>
+    </React.Fragment >
   );
 }

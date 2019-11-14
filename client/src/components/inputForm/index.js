@@ -42,15 +42,15 @@ export default function TemporaryDrawer(props) {
     >
       <div className="form-group">
         <p>Name of Event:</p>
-          <input className="form-control-name" type="text" placeholder="Event Name" name="name" value={props.dataName} onChange={props.handleInputChange}/>
+        <input className="form-control-name" type="text" placeholder="Event Name" name="name" value={props.dataName} onChange={props.handleInputChange} />
         <p>Event Date:</p>
-          <input className="form-control-date" type="date" placeholder="Date" name="date" value={props.date} onChange={props.handleInputChange}/>
+        <input className="form-control-date" type="date" placeholder="Date" name="date" value={props.date} onChange={props.handleInputChange} />
         <p>Start Time:</p>
-          <input className="form-control-time" type="time" placeholder="Start Time" name="startTime" value={props.startTime} onChange={props.handleInputChange}/>
+        <input className="form-control-time" type="time" placeholder="Start Time" name="startTime" value={props.startTime} onChange={props.handleInputChange} />
         <p>End Time:</p>
-          <input className="form-control-time" type="time" placeholder="End Time" name="endTime" value={props.endTime} onChange={props.handleInputChange}/>
+        <input className="form-control-time" type="time" placeholder="End Time" name="endTime" value={props.endTime} onChange={props.handleInputChange} />
         <p>Event Details:</p>
-          <input className="form-control-details" type="text" placeholder="Details" name="details" value={props.details} onChange={props.handleInputChange}/>
+        <input className="form-control-details" type="text" placeholder="Details" name="details" value={props.details} onChange={props.handleInputChange} />
         <button onClick={props.eventSubmit}> Submit </button>
 
       </div>

@@ -4,78 +4,106 @@ import SimpleContainer from './itineraryform';
 import moment from 'moment';
 import API from '../utils/API';
 import axios from "axios";
+import Likes from './likes';
 
 
 class Home extends Component {
-    state = {
-        name: "",
-        date: "",
-        startTime: "",
-        endTime: "",
-        details: "",
-        events:[]
+  state = {
+    name: "",
+    date: "",
+    startTime: "",
+    endTime: "",
+    details: "",
+    events: [],
+    likes: 0
+  }
+
+  componentDidMount() {
+    this.getEvents();
+  }
+
+  getEvents = () => {
+    axios.get("/api/events/").then(data => this.setState({ events: data.data }))
+  }
+
+
+  handleInputChange = event => {
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  eventSubmit = event => {
+    let startDate = moment(this.state.date + " " + this.state.startTime).toISOString(true);
+    let endDate = moment(this.state.date + " " + this.state.endTime).toISOString(true);
+    console.log(startDate);
+    API.eventPost({
+      name: this.state.name,
+      startTime: startDate,
+      endTime: endDate,
+      details: this.state.details,
+      createdBy: this.props.userName
+    })
+      .then(res => this.getEvents())
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  // incrementMe = () => {
+  //   let newCount = this.state.likes + 1
+  //   this.setState({
+  //     likes: newCount
+  //   })
+  // }
+
+  likeClicker = (eventid, likes1) => {
+    console.log(eventid);
+
+    // let eventID = event.target.eventid;
+    // let newLikes = event.target.likenumber;
+    console.log(likes1);
+
+    // this.forceUpdate({
+    //   likes: likes1 + 1
+    // })
+    this.setState({
+      likes: likes1 + 1
+    })
+    console.log(this.state.likes);
+    // console.log(eventID);
+    API.likeUpdate(
+      eventid, this.state.likes
+    )
+  }
+
+  render() {
+    const imageStyle = {
+      width: 400
     }
+    return (
+      <div className="background">
+        <p>Plan your Itinerary!</p>
+        <container id="input">Create Itinerary here</container>
+        {/* <Input/> */}
+        {/* <SwipeableTemporaryDrawer/> */}
+        <TemporaryDrawer
+          eventSubmit={this.eventSubmit}
+          handleInputChange={this.handleInputChange}
+          dataName={this.state.name}
+          date={this.state.date}
+          startTime={this.state.startTime}
+          endTime={this.state.endTime}
+          details={this.state.details}
+        />
+        <br></br>
+        <SimpleContainer events={this.state.events} likeClicker={this.likeClicker} />
+      </div >
+    )
 
-    componentDidMount(){
-      this.getEvents();
-    }
-
-    getEvents = () => {
-      axios.get("/api/events/").then(data=>this.setState({events:data.data}))
-    }
-
-    
-    handleInputChange = event => {
-        const value = event.target.value;
-        const name = event.target.name;
-        this.setState({
-          [name]: value
-        });
-      };
-
-    eventSubmit = event => {
-        let startDate = moment(this.state.date + " " + this.state.startTime).toISOString(true);
-        let endDate = moment(this.state.date + " " + this.state.endTime).toISOString(true);
-        console.log(startDate);
-        API.eventPost({
-          name: this.state.name,
-          startTime: startDate,
-          endTime: endDate,
-          details: this.state.details,
-          createdBy: this.props.userName
-        })
-        .then(res => this.getEvents())
-        .catch(function (error) {
-          console.log(error);
-        });
-      }
-
-
-    render() {
-        const imageStyle = {
-            width: 400
-        }
-        return (
-            <div className="background">
-              <p>Plan your Itinerary</p>
-                <container id="input">Create Itinerary here</container>
-                <TemporaryDrawer
-                eventSubmit={this.eventSubmit}
-                handleInputChange={this.handleInputChange}
-                dataName={this.state.data}
-                date={this.state.date}
-                startTime={this.state.startTime}
-                endTime={this.state.endTime}
-                details={this.state.details}
-
-
-                />
-                <br></br>
-                <SimpleContainer events={this.state.events}/>
-            </div>
-        )
-
-    }
+  }
 }
 
 export default Home
