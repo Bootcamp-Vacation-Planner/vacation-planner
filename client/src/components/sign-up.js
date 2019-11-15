@@ -60,7 +60,7 @@ class Signup extends Component {
 				<p>    </p>
 				<p>    </p>
 				<p>    </p>
-				<container id="signup"><h2>Sign up</h2></container>
+				<container id="signup"><h2><container className="homepage">Sign up</container></h2></container>
 				<form className="form-horizontal">
 					<div className="form-group">
 						<div className="col-1 col-ml-auto">

@@ -2,6 +2,9 @@ body{
   height:100vh;
   width:100vw;
 }
+h1{
+  font-family: 'Dosis', sans-serif;
+}
 
 #signup{
   font-family: 'Dosis', sans-serif;
@@ -86,6 +89,15 @@ html {
   color:white;
 }
 
+.homepage{
+  background-color: #785964;
+  color:white;
+  font-family: 'Dosis', sans-serif;
+  border-radius: 5px;
+  border-style: solid;
+  position: relative;
+  margin-top: 20px;
+}
 .App-title {
   /* background-color: blue; */
   font-size: 3.5em;
