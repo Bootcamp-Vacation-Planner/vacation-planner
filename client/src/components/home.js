@@ -34,18 +34,20 @@ class Home extends Component {
       event.preventDefault();
       console.log(this.state.body);
       let creationDate = moment().toISOString(true);
-      // axios.post('/api/comments/', {
-      //     createdOn: creationDate,
-      //     createdBy: this.props.user,
-      //     body: 
+      console.log(creationDate);
+      console.log(this.props.user)
+      axios.post('/api/comments/', {
+          createdOn: creationDate,
+          createdBy: this.props.userName,
+          body: this.state.body
 
-      //   })
-      //   .then(function (response) {
-      //     console.log(response);
-      //   })
-      //   .catch(function (error) {
-      //     console.log(error);
-      //   });
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
       // API.eventPost({
       //   name: this.state.name,
       //   startTime: startDate,
