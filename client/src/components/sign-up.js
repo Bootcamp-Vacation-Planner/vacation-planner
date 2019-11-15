@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
+<<<<<<< HEAD
 import { withRouter } from 'react-router-dom'
+=======
+import { withRouter } from 'react-router'
+>>>>>>> master
 import axios from 'axios'
 
 class Signup extends Component {
@@ -33,7 +37,6 @@ class Signup extends Component {
 				console.log(response.status)
 				if (response.status == 200) {
 					console.log('successful signup')
-					// alert("Go to login")
 					this.props.history.push('/login');
 					// this.setState({ //redirect to login page
 					// 	redirectTo: '/login'
