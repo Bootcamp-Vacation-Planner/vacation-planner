@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import axios from 'axios'
 
 class Signup extends Component {
@@ -29,12 +30,14 @@ class Signup extends Component {
 			password: this.state.password
 		})
 			.then(response => {
-				console.log(response)
-				if (!response.data.errmsg) {
+				console.log(response.status)
+				if (response.status == 200) {
 					console.log('successful signup')
-					this.setState({ //redirect to login page
-						redirectTo: '/login'
-					})
+					// alert("Go to login")
+					this.props.history.push('/login');
+					// this.setState({ //redirect to login page
+					// 	redirectTo: '/login'
+					// })
 				} else {
 					console.log('username already taken')
 				}
@@ -47,6 +50,7 @@ class Signup extends Component {
 
 
 	render() {
+		
 		return (
 			
 			<div className="SignupForm background" >
@@ -104,4 +108,4 @@ class Signup extends Component {
 	}
 }
 
-export default Signup
+export default withRouter(Signup)
