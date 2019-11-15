@@ -127,31 +127,36 @@ class Home extends Component {
     const imageStyle = {
       width: 400
     }
-    return (
-      <div className="background">
-        <p>Plan your Itinerary!</p>
-        <container id="input">Create Itinerary here</container>
-        {/* <Input/> */}
-        {/* <SwipeableTemporaryDrawer/> */}
-        <TemporaryDrawer
-          eventSubmit={this.eventSubmit}
-          handleInputChange={this.handleInputChange}
-          dataName={this.state.name}
-          date={this.state.date}
-          startTime={this.state.startTime}
-          endTime={this.state.endTime}
-          details={this.state.details}
-        />
-        <br></br>
-        <SimpleContainer
-          userName={this.props.userName}
-          events={this.state.events}
-          body={this.state.body}
-          handleInputChange={this.handleInputChange}
-          commentSubmit={this.commentSubmit}
-        />
-      </div >
-    )
+    if (this.props.loggedIn) {
+      return (
+        <div className="background">
+          <p>Plan your Itinerary!</p>
+          <container id="input">Create Itinerary here</container>
+          {/* <Input/> */}
+          {/* <SwipeableTemporaryDrawer/> */}
+          <TemporaryDrawer
+            eventSubmit={this.eventSubmit}
+            handleInputChange={this.handleInputChange}
+            dataName={this.state.name}
+            date={this.state.date}
+            startTime={this.state.startTime}
+            endTime={this.state.endTime}
+            details={this.state.details}
+          />
+          <br></br>
+          <SimpleContainer
+            userName={this.props.userName}
+            events={this.state.events}
+            body={this.state.body}
+            handleInputChange={this.handleInputChange}
+            commentSubmit={this.commentSubmit}
+          />
+        </div >
+      )
+    } else {
+      return (<p>Log in to get started.</p>)
+    }
+    
 
   }
 }
