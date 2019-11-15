@@ -63,7 +63,7 @@ class LoginForm extends Component {
 				<p>    </p>
 				<p>    </p>
 				<p>    </p>
-				<h2 id="login">Login</h2>
+				<h2 id="login"><container className="homepage">Login</container></h2>
 				<form className="form-horizontal">
 					<div className="form-group">
 						<div className="col-1 col-ml-auto">

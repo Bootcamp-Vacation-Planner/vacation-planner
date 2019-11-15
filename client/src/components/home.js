@@ -154,7 +154,12 @@ class Home extends Component {
         </div >
       )
     } else {
-      return (<div className="background"><p>Log in to get started.</p></div>)
+      return (<div className="background"><p> </p>
+      <p> </p>
+      <p> </p>
+      <p> </p>
+      <p> </p>
+      <p> </p><h1><container className="homepage">Log in to get started.</container></h1></div>)
     }
     
 
