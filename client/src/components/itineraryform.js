@@ -9,6 +9,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import SimpleModal from '../components/commentView';
+import moment from 'moment';
 import Likes from './likes';
 export default function SimpleContainer(props) {
   return (
@@ -18,19 +19,20 @@ export default function SimpleContainer(props) {
         <Typography component="div" style={{ backgroundColor: '#9C97C1', height: '100vh', opacity: .9 }} >
           {console.log(props.events)
           }
-          {props.events.map(e =>
-
-
-            < Card >
+          {props.events.map(e => {
+              let dateString = e.startTime;
+              let startDate = moment.utc(dateString).format('MM-DD-YYYY');
+              let startTime = moment.utc(dateString).format('HH:mm:ss');
+              return (< Card >
               <CardContent>
                 <Typography variant="h5" component="h2">
                   {e.name}
                 </Typography>
-                {/* <Typography variant="h5" component="h2">
-                  {e.date}
-                </Typography> */}
                 <Typography variant="h5" component="h2">
-                  {e.startTime}
+                  {startDate}
+                </Typography>
+                <Typography variant="h5" component="h2">
+                  {startTime}
                 </Typography>
                 <Typography variant="h5" component="h2">
                   {e.details}
@@ -41,8 +43,8 @@ export default function SimpleContainer(props) {
                 <Likes likenumber={e.likes} eventid={e._id} likeclicker={props.likeClicker} />
               </CardActions>
               <SimpleModal id={e._id} user={props.userName} state={props.body} handleInputChange={props.handleInputChange} commentSubmit={props.commentSubmit}/>
-            </Card>
-          )}
+            </Card>)
+})}
         </Typography>
 
       </Container>
