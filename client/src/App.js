@@ -63,6 +63,8 @@ class App extends Component {
         {/* Routes to different components */}
         <Route
           exact path="/"
+          
+          
           render={() =>
             <Home
               userName={this.state.username}
