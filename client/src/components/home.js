@@ -33,9 +33,10 @@ class Home extends Component {
     commentSubmit = event => { 
       event.preventDefault();
       console.log(this.state.body);
+      console.log(event.target);
+      console.log(event.target.getAttribute('linkevent'));
       let creationDate = moment().toISOString(true);
       console.log(creationDate);
-      console.log(this.props.user)
       axios.post('/api/comments/', {
           createdOn: creationDate,
           createdBy: this.props.userName,
