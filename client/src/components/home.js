@@ -18,7 +18,7 @@ class Home extends Component {
     // commentId: "",
     body: "",
     linkevent: "",
-    likes: 0
+    likes: 0,
   }
 
   componentDidMount() {
@@ -71,18 +71,28 @@ class Home extends Component {
     });
   };
 
-  handleInputChange = event => {
-    const value = event.target.value;
-    const name = event.target.name;
-    this.setState({
-      [name]: value
-    });
-  };
+  // handleInputChange = event => {
+  //   const value = event.target.value;
+  //   const name = event.target.name;
+  //   this.setState({
+  //     [name]: value
+  //   });
+  // };
 
   eventSubmit = event => {
     let startDate = moment(this.state.date + " " + this.state.startTime).toISOString(true);
     let endDate = moment(this.state.date + " " + this.state.endTime).toISOString(true);
     console.log(startDate);
+    
+    this.setState ({
+      name: "",
+      date: "",
+      startTime: "",
+      endTime: "",
+      details: "",
+    
+    })
+
     API.eventPost({
       name: this.state.name,
       startTime: startDate,
