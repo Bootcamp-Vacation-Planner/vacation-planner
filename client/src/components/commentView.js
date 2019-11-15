@@ -46,6 +46,10 @@ export default function SimpleModal(props) {
         console.log(commentArray);
         commentArray.map(e => {
           let text = e.body
+          let author = e.createdBy
+          let dateString = e.createdOn;
+          let createDate = moment.utc(dateString).format('MM-DD-YYYY');
+          let creatTime = moment.utc(dateString).format('HH:mm:ss')
           let node = document.createElement("p");
           let textnode = document.createTextNode(text);
           node.appendChild(textnode);
@@ -66,7 +70,7 @@ export default function SimpleModal(props) {
     return (
         <div>
         <button type="button" onClick={handleOpen}>
-          Open Modal
+          Comments
         </button>
         <Modal
           aria-labelledby="simple-modal-title"
