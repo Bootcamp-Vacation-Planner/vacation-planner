@@ -15,12 +15,6 @@ const eventSchema = new Schema({
         }
     ],
     likes: Number
-    // [
-    //     {
-    //         type: Schema.Types.ObjectId,
-    //         ref: "Likes"
-    //     }
-    // ]
 });
 
 const Event = mongoose.model("Event", eventSchema);
