@@ -15,8 +15,9 @@ class Home extends Component {
     endTime: "",
     details: "",
     events: [],
-    commentId:"",
-    body:"",
+    // commentId: "",
+    body: "",
+    linkevent: "",
     likes: 0
   }
 
@@ -24,51 +25,52 @@ class Home extends Component {
     this.getEvents();
   }
 
-    getEvents = () => {
-      axios.get("/api/events/").then(data=>this.setState({events:data.data}))
-      console.log(this.state.events);
-      
-    }
+  getEvents = () => {
+    axios.get("/api/events/").then(data => this.setState({ events: data.data }))
+    console.log(this.state.events);
 
-    commentSubmit = event => { 
-      event.preventDefault();
-      console.log(this.state.body);
-      console.log(event.target);
-      console.log(event.target.getAttribute('linkevent'));
-      let creationDate = moment().toISOString(true);
-      console.log(creationDate);
-      axios.post('/api/comments/', {
-          createdOn: creationDate,
-          createdBy: this.props.userName,
-          body: this.state.body
+  }
 
-        })
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-      // API.eventPost({
-      //   name: this.state.name,
-      //   startTime: startDate,
-      //   endTime: endDate,
-      //   details: this.state.details,
-      //   createdBy: this.props.userName
-      // })
-      // .then(res => this.getEvents())
-      // .catch(function (error) {
-      //   console.log(error);
-      // });
-    }
+  commentAdd = () => axios.put('/api/events/comment/' + eventid), {
+    comments: response.data._id
+  }.then(res => console.log(res))
+    .catch(function (error) {
+      console.log(error);
+    })
+  
+  commentSubmit = event => {
+    let commentId = "";
+    let eventid = event.target.getAttribute('linkevent')
+    console.log(eventid);
     
-    handleInputChange = event => {
-        const value = event.target.value;
-        const name = event.target.name;
-        this.setState({
-          [name]: value
-        });
-      };
+    event.preventDefault();
+    let creationDate = moment().toISOString(true);
+    axios.post('/api/comments/', {
+      createdOn: creationDate,
+      createdBy: this.props.userName,
+      body: this.state.body
+    })
+      .then(response => {
+          axios.put('/api/events/comment/' + eventid), {
+            comments: response.data._id
+          }.then(res => console.log(res))
+            .catch(function (error) {
+              console.log(error);
+            })
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    
+  };
+
+  handleInputChange = event => {
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value
+    });
+  };
 
   handleInputChange = event => {
     const value = event.target.value;
@@ -142,10 +144,10 @@ class Home extends Component {
           details={this.state.details}
         />
         <br></br>
-        <SimpleContainer     
-          userName = {this.props.userName} 
-          events={this.state.events} 
-          body={this.state.body} 
+        <SimpleContainer
+          userName={this.props.userName}
+          events={this.state.events}
+          body={this.state.body}
           handleInputChange={this.handleInputChange}
           commentSubmit={this.commentSubmit}
         />
