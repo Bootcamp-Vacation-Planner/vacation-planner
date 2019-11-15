@@ -31,12 +31,12 @@ class Home extends Component {
 
   }
 
-  commentAdd = () => axios.put('/api/events/comment/' + eventid), {
-    comments: response.data._id
-  }.then(res => console.log(res))
-    .catch(function (error) {
-      console.log(error);
-    })
+  // commentAdd = () => axios.put('/api/events/comment/' + eventid), {
+  //   comments: response.data._id
+  // }.then(res => console.log(res))
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   })
   
   commentSubmit = event => {
     let commentId = "";
