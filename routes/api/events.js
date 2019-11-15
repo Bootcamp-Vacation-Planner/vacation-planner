@@ -13,7 +13,12 @@ router
     .put(eventController.update)
     .delete(eventController.remove);
 
-router.route("/populate/:id")
+router
+.route("/populate/:id")
     .get(eventController.populate);
+
+router
+.route("/comment/:id/:comid")
+    .put(eventController.updateComments);
 
 module.exports = router;
