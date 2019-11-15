@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import axios from 'axios';
+import moment from 'moment';
 import CommentForm from './commentForm';
 
 function rand() {
@@ -48,10 +49,10 @@ export default function SimpleModal(props) {
           let text = e.body
           let author = e.createdBy
           let dateString = e.createdOn;
-          let createDate = moment.utc(dateString).format('MM-DD-YYYY');
-          let creatTime = moment.utc(dateString).format('HH:mm:ss')
+          let createDate = moment.utc(dateString).format('ddd MMM DD, YYYY');
+          let createTime = moment.utc(dateString).format('hh:mm a');
           let node = document.createElement("p");
-          let textnode = document.createTextNode(text);
+          let textnode = document.createTextNode(`${text} -${author} on ${createDate}, at ${createTime}`);
           node.appendChild(textnode);
           document.getElementById("commentContainer").appendChild(node);
         })
