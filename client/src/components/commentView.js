@@ -49,8 +49,8 @@ export default function SimpleModal(props) {
           let text = e.body
           let author = e.createdBy
           let dateString = e.createdOn;
-          let createDate = moment.utc(dateString).format('ddd MMM DD, YYYY');
-          let createTime = moment.utc(dateString).format('hh:mm a');
+          let createDate = moment(dateString).format('ddd MMM DD, YYYY');
+          let createTime = moment(dateString).format('h:mm a');
           let node = document.createElement("p");
           let textnode = document.createTextNode(`${text} -${author} on ${createDate}, at ${createTime}`);
           node.appendChild(textnode);
