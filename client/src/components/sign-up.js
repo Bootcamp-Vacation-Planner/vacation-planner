@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
+<<<<<<< HEAD
+import { withRouter } from 'react-router-dom'
+=======
 import { withRouter } from 'react-router'
+>>>>>>> master
 import axios from 'axios'
 
 class Signup extends Component {
@@ -30,8 +34,8 @@ class Signup extends Component {
 			password: this.state.password
 		})
 			.then(response => {
-				console.log(response)
-				if (!response.data.errmsg) {
+				console.log(response.status)
+				if (response.status == 200) {
 					console.log('successful signup')
 					this.props.history.push('/login');
 					// this.setState({ //redirect to login page
@@ -49,6 +53,7 @@ class Signup extends Component {
 
 
 	render() {
+		
 		return (
 			
 			<div className="SignupForm background" >
@@ -106,4 +111,4 @@ class Signup extends Component {
 	}
 }
 
-export default Signup
+export default withRouter(Signup)
