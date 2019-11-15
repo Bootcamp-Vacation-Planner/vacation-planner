@@ -130,7 +130,7 @@ class Home extends Component {
     return (
       <div className="background">
         <p>Plan your Itinerary!</p>
-        <container id="input">Create Itinerary here</container>
+        {/* <container id="input">Create Itinerary here</container> */}
         {/* <Input/> */}
         {/* <SwipeableTemporaryDrawer/> */}
         <TemporaryDrawer
