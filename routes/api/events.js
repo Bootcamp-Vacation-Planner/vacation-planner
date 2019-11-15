@@ -18,7 +18,7 @@ router
     .get(eventController.populate);
 
 router
-.route("/comment/:id")
+.route("/comment/:id/:comid")
     .put(eventController.updateComments);
 
 module.exports = router;

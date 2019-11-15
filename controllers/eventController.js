@@ -40,7 +40,7 @@ module.exports = {
         console.log(req.body);
 
         db.Event
-            .findOneAndUpdate({ _id: req.params.id }, {$push: { comments: req.body }})
+            .findOneAndUpdate({ _id: req.params.id }, {$push: { comments: req.params.comid }})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },

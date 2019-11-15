@@ -39,8 +39,8 @@ class Home extends Component {
   //   })
   
   commentSubmit = event => {
-    let commentId = "";
     let eventid = event.target.getAttribute('linkevent')
+    let commentId = "";
     console.log(eventid);
     
     event.preventDefault();
@@ -49,15 +49,14 @@ class Home extends Component {
       createdOn: creationDate,
       createdBy: this.props.userName,
       body: this.state.body
+    }).then(response => {
+          console.log(response.data._id);
+          commentId = response.data._id;
+          console.log(commentId);
+    }).then(() => {
+          return axios.put('/api/events/comment/' + eventid + "/" + commentId), {
+        }
     })
-      .then(response => {
-          axios.put('/api/events/comment/' + eventid), {
-            comments: response.data._id
-          }.then(res => console.log(res))
-            .catch(function (error) {
-              console.log(error);
-            })
-      })
       .catch(function (error) {
         console.log(error);
       });
