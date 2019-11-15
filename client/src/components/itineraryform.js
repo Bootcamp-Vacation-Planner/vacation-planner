@@ -21,8 +21,8 @@ export default function SimpleContainer(props) {
           }
           {props.events.map(e => {
               let dateString = e.startTime;
-              let startDate = moment.utc(dateString).format('MM-DD-YYYY');
-              let startTime = moment.utc(dateString).format('HH:mm:ss');
+              let startDate = moment.utc(dateString).format('ddd MMM DD, YYYY');
+              let startTime = moment.utc(dateString).format('hh:mm a');
               return (< Card >
               <CardContent>
                 <Typography variant="h5" component="h2">
