@@ -9,7 +9,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import SimpleModal from '../components/commentView';
-
+import Likes from './likes';
 export default function SimpleContainer(props) {
   return (
     <React.Fragment>
@@ -20,9 +20,10 @@ export default function SimpleContainer(props) {
           }
           {props.events.map(e =>
 
-            <Card>
+
+            < Card >
               <CardContent>
-              <Typography variant="h5" component="h2">
+                <Typography variant="h5" component="h2">
                   {e.name}
                 </Typography>
                 {/* <Typography variant="h5" component="h2">
@@ -37,19 +38,14 @@ export default function SimpleContainer(props) {
 
               </CardContent>
               <CardActions>
-                <Button size="small">Like</Button>
-                {/* <Button size="small" id = {e._id} onClick={props.commentClick}>Comments</Button> */}
+                <Likes likenumber={e.likes} eventid={e._id} likeclicker={props.likeClicker} />
               </CardActions>
-              
-              {/* <Link to="/comments">
-              <button id = {e._id} onClick={props.commentClick}>Comments </button>
-              </Link> */}
               <SimpleModal id={e._id} user={props.userName} state={props.body} handleInputChange={props.handleInputChange} commentSubmit={props.commentSubmit}/>
             </Card>
           )}
         </Typography>
 
       </Container>
-    </React.Fragment>
+    </React.Fragment >
   );
 }
