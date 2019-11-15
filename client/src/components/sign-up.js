@@ -1,9 +1,5 @@
 import React, { Component } from 'react'
-<<<<<<< HEAD
 import { withRouter } from 'react-router-dom'
-=======
-import { withRouter } from 'react-router'
->>>>>>> master
 import axios from 'axios'
 
 class Signup extends Component {
