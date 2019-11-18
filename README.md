@@ -19,7 +19,7 @@ This application is designed with a login feature where a user can login if they
 * Momentjs
 * Heroku
 
-To visit the main website use the following link, https://peaceful-eyrie-80310.herokuapp.com/
+To visit the main website use the following link: https://peaceful-eyrie-80310.herokuapp.com/
 
 
 Creators of this application are: Niq Schwartz, Brian Keehn, Will Oakley, and Nicholas Ready
