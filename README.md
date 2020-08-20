@@ -1,5 +1,5 @@
 # Project 3 - PlanIt
-
+**This project is no longer supported and the website that hosted the web application has been taken down.**
 
 This project was created within a week for a class project using the React front-end framework. 
 
@@ -18,8 +18,5 @@ This application is designed with a login feature where a user can login if they
 * Axios
 * Momentjs
 * Heroku
-
-To visit the main website use the following link: https://peaceful-eyrie-80310.herokuapp.com/
-
 
 Creators of this application are: Niq Schwartz, Brian Keehn, Will Oakley, and Nicholas Ready
